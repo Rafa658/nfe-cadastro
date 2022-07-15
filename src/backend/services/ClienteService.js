@@ -5,6 +5,9 @@ const Cliente = mongoose.model('Cliente', cliente)
 
 class ClienteService {
     async Create(nome, cnpj, loc) {
+
+        if (!nome || !cnpj || !loc) return false
+
         var newCliente = new Cliente({ nome, cnpj, loc })
 
         try {
@@ -13,6 +16,16 @@ class ClienteService {
         } catch (error) {
             console.log(error)
             return false
+        }
+    }
+
+    async FindAll() {
+        try {
+            var result = await Cliente.find()
+            return result
+        } catch (error) {
+            console.log(error)
+            return []
         }
     }
 
@@ -26,3 +39,5 @@ class ClienteService {
         }
     }
 }
+
+module.exports = new ClienteService()

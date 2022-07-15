@@ -1,0 +1,81 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --violet: #8A05BE;
+    --primary-purple: #efcbef;
+    --secondary-purple: #e3caf7;
+    --line-height: 3rem;
+}
+
+h1 { 
+    text-align: center;
+    font-weight: 100;
+    margin: 3rem auto;
+}
+
+form {  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    margin: 0 auto;
+    width: 85vw;
+    margin-bottom: 2rem;
+}
+
+input {
+    border: none;
+    line-height: var(--line-height);
+}
+
+input:nth-child(odd){
+    background-color: var(--primary-purple);
+}
+
+input:nth-child(even){
+    background-color: var(--secondary-purple);
+}
+
+input::placeholder {
+    text-align: center;
+}
+
+.btn {
+    width: 200px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1rem;
+    background: skyblue;
+}
+
+.btn:hover{
+    cursor: pointer;
+}
+
+th {
+    background-color: var(--violet) !important;
+}
+
+td:nth-child(odd){
+    background-color: var(--primary-purple);
+}
+
+td:nth-child(even) {
+    background-color: var(--secondary-purple);
+}
+
+.Table {
+    border-spacing: 1px;
+    margin: 0 auto;
+    width: 85vw;
+    margin-top: 2rem;
+}
+
+.Table th, .Table td {
+    width: 33%;
+    text-align: center;
+    line-height: var(--line-height);
+}
