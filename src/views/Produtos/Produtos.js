@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import LazySelect from "react-lazy-dropdown/dist/LazySelect/LazySelect";
 
 import styles from './Produtos.module.css'
 
@@ -44,6 +45,9 @@ export default function Produtos() {
                     }}
                 >
                 </select> */}
+                <LazySelect
+                    UniqueKey={'id'}
+                />
                 <select
                     required
                     name={und}

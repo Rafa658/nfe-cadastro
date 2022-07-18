@@ -6,6 +6,15 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const jwt = require('jsonwebtoken')
 
+import data from '../data/tabela_ncm.json'
+
+var nomenclaturas = data.Nomenclaturas
+var ncm_tabela = []
+
+nomenclaturas.forEach(e => {
+    ncm_tabela.push(e.Descricao + ' ' + e.Codigo)
+});
+
 app.use(cors())
 app.use(express.json())
 
@@ -23,6 +32,10 @@ app.get("/listar", async (req, res) => {
     var busca = await ClienteService.FindAll()
     res.send(busca)
     res.status(200)
+})
+
+app.get("/ncm", async(req, res) => {
+
 })
 
 app.post("/cadastro", async (req, res) => {
