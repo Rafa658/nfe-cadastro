@@ -27,6 +27,7 @@ form {
 }
 
 input {
+    text-align: center;
     border: none;
     line-height: var(--line-height);
 }
@@ -43,6 +44,10 @@ input::placeholder {
     text-align: center;
 }
 
+input:focus {
+    outline: none;
+}
+
 .btn {
     width: 200px;
     text-align: center;
@@ -53,9 +58,11 @@ input::placeholder {
 
 .btn:hover{
     cursor: pointer;
+    background: rgb(160, 212, 232);
 }
 
 th {
+    color: #fff;
     background-color: var(--violet) !important;
 }
 

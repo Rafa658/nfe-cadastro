@@ -1,0 +1,56 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --violet: #8A05BE;
+    --primary-purple: #efcbef;
+    --secondary-purple: #e3caf7;
+    --line-height: 3rem;
+}
+
+h1 { 
+    text-align: center;
+    font-weight: 100;
+    margin: 3rem auto;
+}
+
+input {
+    text-align: center;
+}
+
+select {
+    /* color: #82738D; */
+    text-align: center;
+}
+
+select:invalid{
+    color: gray;
+}
+
+.btn {
+    width: 200px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1rem;
+    background: skyblue;
+}
+
+.btn:hover{
+    cursor: pointer;
+    background: rgb(160, 212, 232);
+}
+
+select {
+    background: var(--primary-purple);
+    border-radius: 0;
+    outline: none;
+    border: none;
+}
+
+
+select:focus{
+    outline: none;
+}
