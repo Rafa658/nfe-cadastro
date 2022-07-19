@@ -1,25 +1,22 @@
 const express = require('express')
 const app = express()
-const bodyParser = require('body-parser')
 const ClienteService = require('../backend/services/ClienteService')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const jwt = require('jsonwebtoken')
-
-import data from '../data/tabela_ncm.json'
-
-var nomenclaturas = data.Nomenclaturas
-var ncm_tabela = []
-
-nomenclaturas.forEach(e => {
-    ncm_tabela.push(e.Descricao + ' ' + e.Codigo)
-});
+const TabelaMaker = require('../backend/factory/TabelaMaker')
+const port = 4000
+const url = 'mongodb://127.0.0.1:27017/nfe-projeto'
+data = require('../data/tabela_ncm.json') // dados brutos do json
 
 app.use(cors())
 app.use(express.json())
 
-const port = 4000
-const url = 'mongodb://127.0.0.1:27017/nfe-projeto'
+
+var nomenclaturas = data.Nomenclaturas // array com itens provindo do json
+
+ncm_tabela = TabelaMaker(nomenclaturas)
+
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
 
@@ -35,10 +32,30 @@ app.get("/listar", async (req, res) => {
 })
 
 app.get("/ncm", async(req, res) => {
-
+    res.send(ncm_tabela)
+    res.status(200)
 })
 
-app.post("/cadastro", async (req, res) => {
+app.post("/cadastro_clientes", async (req, res) => {
+    // res.header("Access-Control-Allow-Origin", "*")
+    var body = req.body
+
+    var status = await ClienteService.Create(
+        body.nome,
+        body.cnpj,
+        body.loc
+    )
+
+    if (status) {
+        res.status(200)
+        res.send("OK")
+    } else {
+        res.status(400)
+        res.send('Erro')
+    }
+})
+
+app.post("/cadastro_produtos", async (req, res) => {
     // res.header("Access-Control-Allow-Origin", "*")
     var body = req.body
 

@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+*:focus {
+    outline: none;
+}
+
 :root {
     --violet: #8A05BE;
     --primary-purple: #efcbef;
@@ -17,8 +21,24 @@ h1 {
     margin: 3rem auto;
 }
 
-input {
+input, .ncm {
     text-align: center;
+}
+
+.fast-option {
+    overflow: hidden !important;
+}
+
+.ncm{
+    width: 450px;
+}
+
+.ncm__option, .ncm__single-value {
+    white-space: pre-wrap !important;
+}
+
+.ncm__value-container {
+    height: 5em;
 }
 
 select {

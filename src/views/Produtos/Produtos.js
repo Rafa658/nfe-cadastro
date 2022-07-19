@@ -1,26 +1,71 @@
 import React, { useState, useEffect } from "react";
-import LazySelect from "react-lazy-dropdown/dist/LazySelect/LazySelect";
+import Select from "react-select-virtualized";
+import axios from "axios";
 
 import styles from './Produtos.module.css'
-
-import data from '../../data/tabela_ncm.json'
-
-var nomenclaturas = data.Nomenclaturas
-var ncm_tabela = []
-
-nomenclaturas.forEach(e => {
-    ncm_tabela.push(e.Descricao + ' ' + e.Codigo)
-});
+import './SelectFix.css'
 
 export default function Produtos() {
+
+    const customStyles = {
+        control: (base, state) => ({
+            ...base,
+            height: '48px',
+            background: "#e3caf7",
+            // match with the menu
+            borderRadius: 0,
+            // Overwrittes the different states of border
+            borderColor: '#fff',
+            // Removes weird border around container
+            boxShadow: 0
+        }),
+        menu: base => ({
+            ...base,
+            // override border radius to match the box
+            borderRadius: 0,
+            // kill the gap
+            marginTop: 0
+        }),
+        menuList: base => ({
+            ...base,
+            // kill the white space on first and last option
+            padding: 0,
+        })
+    };
+
+    const ncm_api_url = 'http://localhost:4000/ncm'
 
     const [nome, setNome] = useState('')
     const [ncm, setNcm] = useState('')
     const [und, setUnd] = useState('')
     const [preco, setPreco] = useState('')
+    const [lista, setLista] = useState(null)
+
+    useEffect(() => {
+        getLista()
+    }, [])
 
     function cadastro() {
+        setNome('')
+        setNcm('')
+        setUnd('')
+        setPreco('')
+
         console.log(nome, ncm, und, preco)
+    }
+
+    function getLista() {
+        axios
+            .get(ncm_api_url)
+            .then(res => {
+                setLista(res.data.dados)
+            })
+            .catch(err => console.log(`
+                Response: ${err.response}
+                Request: ${err.request}
+                Message: ${err.message}
+            `))
+
     }
 
     return (
@@ -36,18 +81,17 @@ export default function Produtos() {
                         setNome(e.target.value)
                     }}
                 />
-                {/* <select
-                    required
-                    name={ncm}
-                    id='ncm'
-                    onChange={e => {
-                        setNcm(e.target.value)
-                    }}
-                >
-                </select> */}
-                <LazySelect
-                    UniqueKey={'id'}
-                />
+                {lista &&
+                    <div>
+                        <Select
+                            placeholder='NCM'
+                            className={styles.ncm}
+                            classNamePrefix='ncm'
+                            styles={customStyles}
+                            onChange={setNcm}
+                            options={lista}
+                        />
+                    </div>}
                 <select
                     required
                     name={und}
@@ -58,7 +102,6 @@ export default function Produtos() {
                 >
                     <option
                         disabled
-                        selected
                         value=''
                     >Tipo de unidade</option>
                     <option

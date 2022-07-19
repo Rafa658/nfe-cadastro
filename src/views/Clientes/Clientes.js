@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styles from './Clientes.module.css'
 
-const postUrl = 'http://localhost:4000/cadastro'
+const postUrl = 'http://localhost:4000/cadastro_clientes'
 const findUrl = 'http://localhost:4000/listar'
 
 export default function Cadastro() {
@@ -14,7 +14,7 @@ export default function Cadastro() {
 
     useEffect(() => {
         getClientes()
-    }, [clientes])
+    }, [])
 
     function cadastro() {
         setNome('')
@@ -32,6 +32,7 @@ export default function Cadastro() {
             `)
             alert("Insira os dados do cliente")
             })
+        
     }
 
     function getClientes() {
