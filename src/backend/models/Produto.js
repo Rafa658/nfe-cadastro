@@ -4,7 +4,7 @@ const produto = new mongoose.Schema({
     nome: String,
     ncm: String,
     und: String,
-    loc: String,
+    preco: Number,
 })
 
 module.exports = produto
