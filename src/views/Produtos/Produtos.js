@@ -102,6 +102,11 @@ export default function Produtos() {
                         setNome(e.target.value)
                     }}
                 />
+                {!lista && 
+                <input
+                    type="text"
+                    placeholder="NCM"
+                />}
                 {lista &&
                     <div>
                         <Select
@@ -131,6 +136,9 @@ export default function Produtos() {
                     <option
                         value='gal'
                     >Gal</option>
+                    <option
+                        value='un'
+                    >Un</option>
                 </select>
                 <input
                     type="text"
