@@ -3,7 +3,7 @@ import axios from "axios";
 import styles from './Clientes.module.css'
 
 const postUrl = 'http://localhost:4000/cadastro_clientes'
-const findUrl = 'http://localhost:4000/listar'
+const findUrl = 'http://localhost:4000/listar_clientes'
 
 export default function Cadastro() {
 
@@ -30,9 +30,9 @@ export default function Cadastro() {
                 Request: ${err.request}
                 Message: ${err.message}
             `)
-            alert("Insira os dados do cliente")
+                alert("Insira os dados do cliente")
             })
-        
+
     }
 
     function getClientes() {

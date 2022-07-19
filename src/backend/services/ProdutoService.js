@@ -8,7 +8,7 @@ class ProdutoService {
 
         if (!nome || !ncm || !und || !preco) return false
 
-        var newProduto = new Produto({ nome, cnpj, loc })
+        var newProduto = new Produto({ nome, ncm, und, preco })
 
         try {
             await newProduto.save()

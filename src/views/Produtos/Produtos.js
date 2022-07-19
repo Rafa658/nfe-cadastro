@@ -4,6 +4,10 @@ import axios from "axios";
 
 import styles from './Produtos.module.css'
 import './SelectFix.css'
+import { post } from "../../backend/models/Cliente";
+
+const postUrl = 'http://localhost:4000/cadastro_produtos'
+const findUrl = 'http://localhost:4000/listar_produtos'
 
 export default function Produtos() {
 
@@ -41,6 +45,11 @@ export default function Produtos() {
     const [preco, setPreco] = useState('')
     const [lista, setLista] = useState(null)
 
+    function handleNcmChange(e){
+        // console.log(e.value)
+        setNcm(e.value)
+    }
+
     useEffect(() => {
         getLista()
     }, [])
@@ -51,7 +60,19 @@ export default function Produtos() {
         setUnd('')
         setPreco('')
 
+
         console.log(nome, ncm, und, preco)
+        axios
+            .post(postUrl, { nome, ncm, und, preco })
+            .then(() => alert("Cadastro feito com sucesso"))
+            .catch(err => {
+                console.log(`
+                Response: ${err.response}
+                Request: ${err.request}
+                Message: ${err.message}
+            `)
+                alert("Insira os dados do produto")
+            })
     }
 
     function getLista() {
@@ -88,13 +109,13 @@ export default function Produtos() {
                             className={styles.ncm}
                             classNamePrefix='ncm'
                             styles={customStyles}
-                            onChange={setNcm}
+                            onChange={handleNcmChange}
                             options={lista}
                         />
                     </div>}
                 <select
                     required
-                    name={und}
+                    value={und}
                     id='und'
                     onChange={e => {
                         setUnd(e.target.value)

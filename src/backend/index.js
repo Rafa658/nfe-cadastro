@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const ClienteService = require('../backend/services/ClienteService')
+const ProdutoService = require('../backend/services/ProdutoService')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const jwt = require('jsonwebtoken')
@@ -24,9 +25,16 @@ app.listen(port, () => {
     console.log(`Iniciado na porta ${port}`)
 })
 
-app.get("/listar", async (req, res) => {
+app.get("/listar_clientes", async (req, res) => {
     
     var busca = await ClienteService.FindAll()
+    res.send(busca)
+    res.status(200)
+})
+
+app.get("/listar_produtos", async (req, res) => {
+    
+    var busca = await ProdutoService.FindAll()
     res.send(busca)
     res.status(200)
 })
@@ -59,10 +67,11 @@ app.post("/cadastro_produtos", async (req, res) => {
     // res.header("Access-Control-Allow-Origin", "*")
     var body = req.body
 
-    var status = await ClienteService.Create(
+    var status = await ProdutoService.Create(
         body.nome,
-        body.cnpj,
-        body.loc
+        body.ncm,
+        body.und,
+        body.preco
     )
 
     if (status) {
