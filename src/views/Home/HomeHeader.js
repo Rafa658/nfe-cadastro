@@ -33,6 +33,7 @@ export default function HomeHeader() {
                     <span className={styles.textoHeader}>Cliente:</span>
                     <Select
                         className={styles.selecionarClienteSelect}
+                        style={{height: '1em'}}
                         defaultValue=''
                         onChange={e => setCliente(e.target.value)}
                     >
@@ -45,7 +46,7 @@ export default function HomeHeader() {
 
                 </div>
                 <div className={styles.cnpjDoCliente}>
-                    <span className={styles.textoHeader}>CNPJ: {cliente.cnpj}</span>
+                    <span className={styles.textoHeader}>CNPJ:</span> {cliente.cnpj}
                 </div>
                 <div className={styles.ac}>
                     <span className={styles.textoHeader}>A/C:</span>

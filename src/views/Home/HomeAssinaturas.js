@@ -23,16 +23,6 @@ export default function HomeAssinaturas() {
     return (
         <div className={styles.Assinaturas}>
             <div className={styles.local}>
-                {/* <input
-                    className={styles.Input}
-                    style={{width}}
-                    type='text'
-                    name='cidade'
-                    placeholder='cidade'
-                    value={cidade}
-                    onChange={e => setCidade(e.target.value)}
-                    ref={span}
-                /> */}
                 Fortaleza, {hoje.getDate()} de {meses[hoje.getMonth()]} de {hoje.getFullYear()}
             </div>
             <div className={styles.assinatura}>
@@ -51,7 +41,7 @@ export default function HomeAssinaturas() {
                         className={styles.Input}
                         type='text'
                         name='func'
-                        placeholder='func'
+                        placeholder='Função'
                         value={func}
                         onChange={e => setFunc(e.target.value)}
                     />

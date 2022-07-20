@@ -1,16 +1,32 @@
-import React from "react";
+import React, { useRef } from "react";
 import HomeHeader from "./HomeHeader";
 import HomeOrcamento from "./HomeOrcamento";
 import HomeInfos from "./HomeInfos";
 import HomeAssinaturas from "./HomeAssinaturas";
+import HomeFooter from "./HomeFooter";
+import ReactToPrint from "react-to-print";
+
+import styles from './Home.module.css'
 
 export default function Home() {
-    return(
+
+    const componentRef = useRef()
+    return (
         <div>
-            <HomeHeader/>
-            <HomeOrcamento/>
-            <HomeInfos/>
-            <HomeAssinaturas/>
+            <ReactToPrint
+                trigger={() => <div className={styles.btn} style={{marginTop: '1rem'}}>Imprimir</div>}
+                content={() => componentRef.current}
+            />
+            <div
+                ref={componentRef}
+                className={styles.imprimir}
+            >
+                <HomeHeader />
+                <HomeOrcamento />
+                <HomeInfos />
+                <HomeAssinaturas />
+                <HomeFooter/>
+            </div>
         </div>
     )
 }

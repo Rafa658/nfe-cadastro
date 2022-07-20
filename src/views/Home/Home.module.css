@@ -1,34 +1,38 @@
-*{
-    margin: 0;  
+* {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.Home{
+.Home {
     margin: 1.2rem;
 }
 
-.selecionarCliente, .cnpjDoCliente, .ac{
+.selecionarCliente,
+.cnpjDoCliente,
+.ac {
     display: flex;
 }
 
-.selecionarClienteSelect{
+.selecionarClienteSelect {
     width: 240px;
     height: 1.5em;
     align-self: flex-end;
 }
 
-.header > div {
+.header>div {
     margin-top: 1rem;
 }
 
-.textoHeader, .Input {
+.textoHeader,
+.Input {
     display: flex;
     align-items: center;
     font-weight: bold;
     font-size: 1em;
     align-self: flex-end !important;
     line-height: 1em;
+    margin-right: 10px;
 }
 
 .Input {
@@ -39,6 +43,10 @@
     font-weight: normal;
 }
 
+.footerLinha .Input {
+    width: 100vw;
+}
+
 .Orcamento {
     margin: 1.2rem
 }
@@ -47,7 +55,7 @@
     margin: 1.2rem;
 }
 
-.infoLinha{
+.infoLinha {
     display: flex;
     margin: 1rem 0;
 }
@@ -56,7 +64,7 @@
     align-self: flex-end;
 }
 
-.Assinaturas {
+.Assinaturas, .Footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -65,29 +73,67 @@
     height: 100px;
 }
 
-.Assinaturas .Input {
+.Assinaturas .Input, .Footer .Input {
     text-align: center !important;
 }
 
-.local{
+.local {
     display: flex;
 }
 
 .local .Input {
-    display: block  ;
+    display: block;
     float: right;
     clear: both;
     width: 100px !important;
-    text-align:end !important;
+    text-align: end !important;
 }
 
-.assinatura {
+.assinatura, .Footer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.funcaoDoResponsavel {
+.funcaoDoResponsavel, .footerLinha {
     text-align: center;
     margin: 0 auto;
+}
+
+.nomeDoResponsavel .Input {
+    width: 30vw;
+}
+
+.btn {
+    width: 200px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1rem;
+    background: skyblue;
+}
+
+.footerWrap {
+    margin: auto;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background: rgb(160, 212, 232);
+}
+
+@media print {
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    * {
+        font-size: .7rem;
+    }
+
+    .imprimir {
+        width: 210mm;
+        height: 297mm;
+    }
 }

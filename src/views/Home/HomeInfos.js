@@ -15,6 +15,7 @@ export default function HomeInfos() {
                 <input
                         className={styles.Input}
                         type='text'
+                        style={{width: '100px'}}
                         name='Validade da proposta'
                         placeholder='texto'
                         value={validade}
@@ -26,6 +27,7 @@ export default function HomeInfos() {
                 <input
                         className={styles.Input}
                         type='text'
+                        style={{width: '60%'}}
                         name='Prazo de pagamento'
                         placeholder='texto'
                         value={prazo}
@@ -37,6 +39,7 @@ export default function HomeInfos() {
                 <input
                         className={styles.Input}
                         type='text'
+                        style={{width: '60%'}}
                         name='Dados bancários para depósito'
                         placeholder='texto'
                         value={dados}
