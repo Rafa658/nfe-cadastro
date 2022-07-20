@@ -1,0 +1,80 @@
+*{
+    margin: 0;  
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Home{
+    margin: 1.2rem;
+}
+
+.selecionarCliente, .cnpjDoCliente, .ac{
+    display: flex;
+}
+
+.selecionarClienteSelect{
+    width: 240px;
+    height: 1.5em;
+    align-self: flex-end;
+}
+
+.header > div {
+    margin-top: 1rem;
+}
+
+.textoHeader, .Input {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1em;
+    align-self: flex-end !important;
+    line-height: 1em;
+}
+
+.Input {
+    margin: 0;
+    background-color: #fff !important;
+    text-align: left !important;
+    margin-left: 10px;
+    font-weight: normal;
+}
+
+.Orcamento {
+    margin: 1.2rem
+}
+
+.Infos {
+    margin: 1.2rem;
+}
+
+.infoLinha{
+    display: flex;
+    margin: 1rem 0;
+}
+
+.infoLinha p {
+    align-self: flex-end;
+}
+
+.Assinaturas {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1.2rem;
+    height: 100px;
+}
+
+.local{
+    display: flex;
+}
+
+.local .Input {
+    display: block  ;
+    width: 100px;
+    float: right;
+    clear: both;
+    text-align:end !important;
+}
+
+.assinatura {
+}
