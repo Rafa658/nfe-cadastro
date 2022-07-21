@@ -4,7 +4,6 @@ import axios from "axios";
 
 import styles from './Produtos.module.css'
 import './SelectFix.css'
-import { post } from "../../backend/models/Cliente";
 
 const postUrl = 'http://localhost:4000/cadastro_produtos'
 const findUrl = 'http://localhost:4000/listar_produtos'
@@ -41,6 +40,7 @@ export default function Produtos() {
 
     const [nome, setNome] = useState('')
     const [ncm, setNcm] = useState('')
+    const [ncm_id, setNcm_id] = useState('')
     const [und, setUnd] = useState('')
     const [preco, setPreco] = useState('')
     const [lista, setLista] = useState(null)
@@ -48,6 +48,7 @@ export default function Produtos() {
     function handleNcmChange(e){
         // console.log(e.value)
         setNcm(e.value)
+        setNcm_id(e.ncm_id)
     }
 
     useEffect(() => {
@@ -57,13 +58,14 @@ export default function Produtos() {
     function cadastro() {
         setNome('')
         setNcm('')
+        setNcm_id('')
         setUnd('')
         setPreco('')
 
 
         console.log(nome, ncm, und, preco)
         axios
-            .post(postUrl, { nome, ncm, und, preco })
+            .post(postUrl, { nome, ncm, ncm_id, und, preco })
             .then(() => alert("Cadastro feito com sucesso"))
             .catch(err => {
                 console.log(`

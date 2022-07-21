@@ -5,7 +5,8 @@ function TabelaMaker(nomenclaturas) {
         let valor = e.Descricao + ' ' + e.Codigo
         let item = {
             label: valor,
-            value: valor
+            value: valor,
+            ncm_id: e.Codigo,
         }
         ncm_array.push(item)
     })

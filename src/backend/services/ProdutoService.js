@@ -4,11 +4,11 @@ const produto = require('../models/Produto');
 const Produto = mongoose.model('Produto', produto)
 
 class ProdutoService {
-    async Create(nome, ncm, und, preco) {
+    async Create(nome, ncm, ncm_id, und, preco) {
 
-        if (!nome || !ncm || !und || !preco) return false
+        if (!nome || !ncm || !ncm_id || !und || !preco) return false
 
-        var newProduto = new Produto({ nome, ncm, und, preco })
+        var newProduto = new Produto({ nome, ncm, ncm_id, und, preco })
 
         try {
             await newProduto.save()

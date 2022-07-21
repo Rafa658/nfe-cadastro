@@ -70,6 +70,7 @@ app.post("/cadastro_produtos", async (req, res) => {
     var status = await ProdutoService.Create(
         body.nome,
         body.ncm,
+        body.ncm_id,
         body.und,
         body.preco
     )
