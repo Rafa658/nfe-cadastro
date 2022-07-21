@@ -43,6 +43,10 @@
     font-weight: normal;
 }
 
+.nomeEscondido {
+    display: none;
+}
+
 .footerLinha .Input {
     width: 100vw;
 }
@@ -138,6 +142,10 @@
     grid-gap: 1.5px;
 }
 
+.btn{
+    margin: 1.2rem auto;
+}
+
 .gridContainer.header {
     grid-template-columns: 1fr 5fr repeat(5, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -209,6 +217,14 @@
 @media print {
     * {
         font-size: .7rem;
+    }
+
+    .selecionarClienteSelect{
+        display: none;
+    }
+
+    .nomeEscondido {
+        display: inline-block;
     }
 
     footer {

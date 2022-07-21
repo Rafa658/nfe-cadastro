@@ -43,11 +43,12 @@ export default function HomeHeader() {
                             ))
                         }
                     </Select>
+                    <div className={styles.nomeEscondido}>{cliente.nome}</div>
 
                 </div>
                 <div className={styles.cnpjDoCliente}>
                     <span className={styles.textoHeader}>CNPJ:</span> {cliente.cnpj}
-                </div>
+                </div   >
                 <div className={styles.ac}>
                     <span className={styles.textoHeader}>A/C:</span>
                     {/* <span className={styles.textoHeader}>xxx</span> */}
