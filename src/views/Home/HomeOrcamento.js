@@ -96,7 +96,7 @@ export default function HomeOrcamento() {
                 <div>{qtd * itemAdd.preco}</div>
             </div>
             <div
-                className={styles.btn}
+                className={`${styles.btn} ${styles.escondeImpressao}`}
                 onClick={adicionar}
             >ADICIONAR
             </div>

@@ -1,25 +1,20 @@
 const express = require('express')
-const app = express()
+const cors = require('cors')
 const ClienteService = require('../backend/services/ClienteService')
 const ProdutoService = require('../backend/services/ProdutoService')
-const mongoose = require('mongoose')
-const cors = require('cors')
-const jwt = require('jsonwebtoken')
 const TabelaMaker = require('../backend/factory/TabelaMaker')
+const connectToDatabase = require('./database')
 const port = 4000
-const url = 'mongodb://127.0.0.1:27017/nfe-projeto'
-data = require('../data/tabela_ncm.json') // dados brutos do json
 
+const app = express()
 app.use(cors())
 app.use(express.json())
 
+connectToDatabase()
 
+data = require('../data/tabela_ncm.json') // dados brutos do json
 var nomenclaturas = data.Nomenclaturas // array com itens provindo do json
-
 ncm_tabela = TabelaMaker(nomenclaturas)
-
-
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.listen(port, () => {
     console.log(`Iniciado na porta ${port}`)

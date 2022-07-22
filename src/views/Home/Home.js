@@ -14,13 +14,14 @@ export default function Home() {
     return (
         <div>
             <ReactToPrint
-                trigger={() => <div className={styles.btn} style={{marginTop: '1rem'}}>Imprimir</div>}
+                trigger={() => <div className={styles.btn} style={{marginTop: '1rem'}}>IMPRIMIR</div>}
                 content={() => componentRef.current}
             />
             <div
                 ref={componentRef}
                 className={styles.imprimir}
             >
+                <h1 className={styles.h1}>ORÇAMENTO DE VENDA 21/07/22</h1>
                 <HomeHeader />
                 <HomeOrcamento />
                 <HomeInfos />
